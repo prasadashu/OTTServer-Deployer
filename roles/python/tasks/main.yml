@@ -1,3 +1,0 @@
-- name: "Install PyMySQL"
-  pip:
-    name: PyMySQL
