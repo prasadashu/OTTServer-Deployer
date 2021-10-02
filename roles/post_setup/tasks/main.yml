@@ -1,0 +1,31 @@
+- name: "Download Git repo"
+  git:
+    repo: https://github.com/official-srv-modak/OTTServer.git
+    dest: /var/www/html/
+    version: master
+    force: yes
+
+- name: "Run SQL queries against a database"
+  mysql_db:
+    name: "{{ mysql_db }}"
+    state: import
+    target: /var/www/html/SQL_template/localhost.sql
+  ignore_errors: yes
+
+- name: "Modify database connection host"
+  lineinfile:
+    path: /var/www/html/db.php
+    regexp: '^(.*)localhost(.*)$'
+    line: "\t\t\t\t\t\t$con = mysqli_connect('localhost', '{{ mysql_user }}', '{{ mysql_password }}', '{{ mysql_db }}');"
+    backrefs: yes
+
+- name: "Test httpd webhost"
+  get_url:
+    url: http://localhost
+    dest: ~/get_url_output.txt
+    mode: '644'
+  register: webhost_output
+
+- name: "Print return code"
+  custom_debug:
+    debug_msg: "{{ webhost_output.status_code }}"
