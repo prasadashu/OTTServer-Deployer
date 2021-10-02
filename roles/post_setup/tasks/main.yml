@@ -8,6 +8,10 @@
 - name: "Run SQL queries against a database"
   mysql_db:
     name: "{{ mysql_db }}"
+    login_user: "{{ mysql_user }}"
+    login_password: "{{ mysql_password }}"
+    config_file: /etc/my.cnf
+    login_unix_socket: /var/lib/mysql/mysql.sock
     state: import
     target: /var/www/html/SQL_template/modak_flix.sql
   ignore_errors: yes
