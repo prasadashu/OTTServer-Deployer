@@ -1,6 +1,4 @@
 - name: "Install MariaDB server"
-  become: yes
-  become_user: root
   package:
     name: mariadb-server
     state: present
@@ -19,7 +17,6 @@
     state: present
 
 - name: "Create a user for the database"
-  no_log: yes
   mysql_user:
     name: "{{ mysql_user }}"
     password: "{{ mysql_password }}"
