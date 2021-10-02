@@ -4,10 +4,9 @@
     state: present
 
 - name: "Start MariaDB service"
-  become: yes
-  become_user: "{{ flix_admin }}"
   service:
     name: mariadb
+    enabled: yes
     state: started
 
 - name: "Create database"
