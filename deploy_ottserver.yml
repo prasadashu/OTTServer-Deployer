@@ -20,7 +20,7 @@
   become: yes
   become_user: "{{ flix_admin }}"
   roles:
-    - firewall_setup
+    - { role: firewall_setup, become: yes, become_user: root }
     - python
     - maria_db
     - httpd_web
