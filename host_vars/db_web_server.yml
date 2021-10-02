@@ -1,11 +1,5 @@
 ansible_connection: local
 
-flix_admin: flix_admin
-flix_admin_pass: flix_admin_pass
-flix_admin_group: flix_admin_group
-
 mysql_db: modak_flix
-mysql_user: flix_admin
-mysql_password: flix_admin_pass
-
-password_salt: $1$TinchOfSalt$
+mysql_user: root
+mysql_password: root_pass
