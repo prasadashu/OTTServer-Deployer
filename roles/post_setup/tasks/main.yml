@@ -2,7 +2,7 @@
   git:
     repo: https://github.com/official-srv-modak/OTTServer.git
     dest: /var/www/html/
-    version: master
+    version: main
     force: yes
 
 - name: "Run SQL queries against a database"
