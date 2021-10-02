@@ -1,4 +1,6 @@
 - name: "Install httpd, php and php-mysql daemon"
+  become: yes
+  become_user: root
   package:
     name: ['httpd', 'php', 'php-mysql']
     state: installed
