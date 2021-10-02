@@ -1,8 +1,24 @@
 ---
+- name: "Create a dedicated admin user and group"
+  hosts: "{{ host }}"
+  tasks:
+  - name: Create a dedicated admin group
+    group:
+      name: "{{ flix_admin_group }}"
+      state: present
+
+  - name: Create a dedicated admin user
+    user:
+      name: "{{ flix_admin }}"
+      password: "{{ flix_admin_pass | password_hash('sha512', password_salt) }}"
+      group: "{{ flix_admin_group }}"
+      shell: /bin/bash
+      create_home: yes
+
 - name: "Deploy OTTServer"
   hosts: "{{ host }}"
   become: yes
-  become_user: root
+  become_user: "{{ flix_admin }}"
   roles:
     - firewall_setup
     - python
