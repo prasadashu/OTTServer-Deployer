@@ -18,10 +18,10 @@
 - name: "Deploy OTTServer"
   hosts: "{{ host }}"
   become: yes
-  become_user: "{{ flix_admin }}"
+  become_user: root
   roles:
-    - { role: firewall_setup, become: yes, become_user: root }
-    - { role: python_dependency, become: yes, become_user: root }
-    - { role: maria_db, become: yes, become_user: root }
-    - { role: httpd_web, become: yes, become_user: root }
+    - firewall_setup
+    - python_dependency
+    - maria_db
+    - httpd_web
     - post_setup
