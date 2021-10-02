@@ -1,0 +1,11 @@
+---
+- name: "Deploy OTTServer"
+  hosts: "{{ host }}"
+  become: yes
+  become_user: root
+  roles:
+    - firewall_setup
+    - python
+    - maria_db
+    - httpd_web
+    - post_setup
