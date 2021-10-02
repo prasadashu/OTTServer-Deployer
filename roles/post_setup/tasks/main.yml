@@ -9,7 +9,7 @@
   mysql_db:
     name: "{{ mysql_db }}"
     state: import
-    target: /var/www/html/SQL_template/localhost.sql
+    target: /var/www/html/SQL_template/modak_flix.sql
   ignore_errors: yes
 
 - name: "Modify database connection host"
