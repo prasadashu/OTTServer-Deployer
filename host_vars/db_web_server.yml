@@ -1,5 +1,5 @@
 ansible_connection: local
 
-mysql_db:
-mysql_user:
-mysql_password:
+mysql_db: modak_flix
+mysql_user: root
+mysql_password: root_pass
