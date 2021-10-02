@@ -1,4 +1,6 @@
 - name: "Install MariaDB server"
+  become: yes
+  become_user: root
   package:
     name: mariadb-server
     state: present
