@@ -3,33 +3,23 @@
   package:
     name: firewalld
     state: present
-  register: install_firewall_daemon
 
 - name: "Start firewall service"
-  become: yes
-  become_user: root
   service:
     name: firewalld
     enabled: yes
     state: started
-  when: not install_firewall_daemon.changed
 
 - name: "Permit traffic on default port for MariaDB through firewall"
-  become: yes
-  become_user: root
   firewalld:
     port: 3306/tcp
     permanent: yes
     state: enabled
     immediate: yes
-  when: not install_firewall_daemon.changed
 
 - name: "Permit traffic on default port for httpd through firewall"
-  become: yes
-  becomes_user: root
   firewalld:
     port: 80/tcp
     permanent: yes
     state: enabled
     immediate: yes
-  when: not install_firewall_daemon.changed
