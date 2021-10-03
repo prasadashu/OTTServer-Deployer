@@ -21,7 +21,7 @@
   lineinfile:
     path: /etc/httpd/conf/httpd.conf
     regexp: '^(.*)Group apache(.*)$'
-    line: "User {{ flix_admin_group }}"
+    line: "Group {{ flix_admin_group }}"
     backrefs: yes
 
 - name: "Modify /run/httpd in tmpfiles.d config file"
