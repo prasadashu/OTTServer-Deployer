@@ -10,6 +10,60 @@
     line: "\tDirectoryIndex index.php"
     backrefs: yes
 
+- name: "Change user of httpd process"
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^(.*)User apache(.*)$'
+    line: "User {{ flix_admin }}"
+    backrefs: yes
+
+- name: "Change group of httpd process"
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^(.*)Group apache(.*)$'
+    line: "User {{ flix_admin_group }}"
+    backrefs: yes
+
+- name: "Modify /run/httpd in tmpfiles.d config file"
+  lineinfile:
+    path: /usr/lib/tmpfiles.d/httpd.conf
+    regexp: '^(.*)d /run/httpd   710(.*)$'
+    line: "d /run/httpd   710 test test"
+    backrefs: yes
+
+- name: "Modify /run/httpd/htcacheclean in tmpfiles.d config file"
+  lineinfile:
+    path: /usr/lib/tmpfiles.d/httpd.conf
+    regexp: '^(.*)d /run/httpd/htcacheclean   700(.*)$'
+    line: "d /run/httpd/htcacheclean   700 test test"
+    backrefs: yes
+
+- name: "Change ownership of /var/log/httpd"
+  file:
+    path: /var/log/httpd
+    owner: "{{ flix_admin }}"
+    group: "{{ flix_admin_group }}"
+    state: directory
+    recurse: yes
+
+- name: "Change ownership of /run/httpd"
+  file:
+    path: /run/httpd
+    owner: "{{ flix_admin }}"
+    group: "{{ flix_admin_group }}"
+    state: directory
+    recurse: yes
+
+- name: Set cap_net_bind_service capability to /usr/sbin/httpd apache binary from root login
+  shell: setcap cap_net_bind_service=+epi /usr/sbin/httpd
+
+- name: Get cap_net_bind_service value
+  shell: getcap /usr/sbin/httpd
+  register: cap_net_bind_service_output
+
+- debug:
+    msg: "{{ cap_net_bind_service_output }}"
+
 - name: "Start httpd service"
   service:
     name: httpd
