@@ -17,7 +17,6 @@
     state: present
 
 - name: "Create a user for the database"
-  no_log: yes
   mysql_user:
     name: "{{ mysql_user }}"
     password: "{{ mysql_password }}"
