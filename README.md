@@ -1,17 +1,21 @@
 # OTTServer-Deployer
-Ansible repo to deploy OTTServer
+The project is in association with https://github.com/official-srv-modak/OTTServer.
 
-# Install Ansible
+This is an Ansible repo to deploy OTTServer.
+
+## How to deploy OTTServer?
+
+### 1. Install Ansible
 ```shell
 sudo yum install -y ansible
 ```
 
-# Clone the repo
+### 2. Clone the repo
 ```shell
 git clone -b dedicated_user https://github.com/prasadashu/OTTServer-Deployer.git
 ```
 
-# How to execute playbook
+### 3. Execute playbook
 ```shell
 ansible-playbook deploy_ottserver.yml -i inventory/inventory.txt --extra-vars "{'host':'db_web_server'}"
 ```
