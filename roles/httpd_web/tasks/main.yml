@@ -55,11 +55,10 @@
     recurse: yes
 
 - name: Set cap_net_bind_service capability to /usr/sbin/httpd apache binary from root login
-  shell: setcap cap_net_bind_service=+epi /usr/sbin/httpd
-
-- name: Get cap_net_bind_service value
-  shell: getcap /usr/sbin/httpd
-  register: cap_net_bind_service_output
+  capabilities:
+    path: /usr/sbin/httpd
+    capability: cap_net_bind_service+epi
+    state: present
 
 - debug:
     msg: "{{ cap_net_bind_service_output }}"
