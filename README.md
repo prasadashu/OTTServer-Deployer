@@ -12,7 +12,7 @@ sudo yum install -y ansible
 
 ### 2. Clone the repo
 ```shell
-git clone -b dedicated_user https://github.com/prasadashu/OTTServer-Deployer.git
+git clone https://github.com/prasadashu/OTTServer-Deployer.git
 ```
 
 ### 3. Execute playbook
