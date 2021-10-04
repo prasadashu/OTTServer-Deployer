@@ -60,9 +60,6 @@
     capability: cap_net_bind_service+epi
     state: present
 
-- debug:
-    msg: "{{ cap_net_bind_service_output }}"
-
 - name: "Start httpd service"
   service:
     name: httpd
