@@ -12,10 +12,10 @@ sudo yum install -y ansible
 
 ### 2. Clone the repo
 ```shell
-git clone https://github.com/prasadashu/OTTServer-Deployer.git
+git clone -b dockerized_deployment https://github.com/prasadashu/OTTServer-Deployer.git
 ```
 
 ### 3. Execute playbook
 ```shell
-ansible-playbook deploy_ottserver.yml -i inventory/inventory.txt --extra-vars "{'host':'db_web_server'}"
+ansible-playbook deploy_dockerized_ottserver.yml -i inventory/inventory.txt --extra-vars "{'host':'db_web_server'}"
 ```
