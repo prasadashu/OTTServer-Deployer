@@ -1,3 +1,8 @@
+- name: "Download Python 3"
+  package:
+    name: python3
+    state: present
+
 - name: "Download Git repo"
   git:
     repo: https://github.com/official-srv-modak/OTTServer.git
