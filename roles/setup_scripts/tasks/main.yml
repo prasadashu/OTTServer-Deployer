@@ -5,13 +5,6 @@
     mode: "0644"
     remote_src: yes
 
-- name: "Copy the album_art.jpg from Venom movie to cached_images"
-  copy:
-    src: "/var/www/html/src/Movies/Venom (2018)/album_art.jpg"
-    dest: "/var/www/html/src/cached_images/Venom (2018)_album_art.jpg"
-    mode: "0644"
-    remote_src: yes
-
 - name: "Copy the dp.php script to hosted directory"
   copy:
     src: ./roles/setup_scripts/templates/db.php
