@@ -1,6 +1,8 @@
 - name: "Execute the docker-compose file"
   docker_compose:
     project_src: "./"
+  vars:
+    ansible_python_interpreter: /bin/python3
   register: docker_compose_output
 
 - name: "Print the output of docker-compose up"
