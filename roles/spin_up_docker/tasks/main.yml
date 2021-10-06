@@ -1,0 +1,8 @@
+- name: "Execute the docker-compose file"
+  docker_compose:
+    project_src: ../../../docker-compose.yml
+  register: docker_compose_output
+
+- name: "Print the output of docker-compose up"
+  debug:
+    msg: "{{  docker_compose_output  }}"
