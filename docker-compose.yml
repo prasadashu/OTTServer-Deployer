@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+    web:
+        build:
+            context: ./php-apache-web
+            dockerfile: Dockerfile
+        depends_on:
+            - db
+        volumes:
+            - /var/www/html/src:/var/www/html/
+        ports:
+            - "8000-8005:80"
+    db:
+        build:
+            context: ./mariadb
+            dockerfile: Dockerfile
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+            MYSQL_DATABASE: modak_flix
+            MYSQL_USER: MYSQL_USER
+            MYSQL_PASSWORD: MYSQL_PASSWORD
+        ports:
+            - "3000-3005:3306"
+    ngnix:
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        depends_on:
+            - web
+        ports:
+            - "5000:80"
