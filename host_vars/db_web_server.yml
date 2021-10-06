@@ -8,4 +8,6 @@ mysql_db: modak_flix
 mysql_user: flix_admin
 mysql_password: flix_admin_pass
 
+path_server: "/"
+
 password_salt: $1$TinchOfSalt$
