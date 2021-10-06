@@ -7,7 +7,7 @@
 
 - name: "Copy the dp.php script to hosted directory"
   copy:
-    src: ./roles/setup_scripts/templates/db.php
+    src: ./roles/setup_scripts/templates/db.php.j2
     dest: /var/www/html/src/db.php
     mode: "0644"
     remote_src: yes
