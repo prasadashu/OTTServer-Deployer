@@ -1,0 +1,20 @@
+- name: "Copy the SQL startup script to MariaDB Dockerfile location"
+  copy:
+    src: /var/www/html/src/SQL_template/modak_flix.sql
+    dest: ../../../mariadb/
+    mode: "0644"
+    remote_src: yes
+
+- name: "Copy the dp.php script to hosted directory"
+  copy:
+    src: ../templates/db.php
+    dest: /var/www/html/src/db.php
+    mode: "0644"
+    remote_src: yes
+
+- name: "Copy the path.php script to hosted directory"
+  copy:
+    src: ../templates/path.php
+    dest: /var/www/html/src/path.php
+    mode: "0644"
+    remote_src: yes
