@@ -21,6 +21,7 @@
   become: yes
   become_user: root
   roles:
+    - firewall_setup
     - setup_dependencies
     - python_dependency
     - setup_scripts
