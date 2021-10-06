@@ -6,11 +6,10 @@
     remote_src: yes
 
 - name: "Copy the dp.php script to hosted directory"
-  copy:
+  template:
     src: ./roles/setup_scripts/templates/db.php.j2
     dest: /var/www/html/src/db.php
     mode: "0644"
-    remote_src: yes
 
 - name: "Copy the path.php script to hosted directory"
   copy:

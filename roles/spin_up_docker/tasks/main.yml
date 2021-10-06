@@ -1,9 +1,8 @@
 - name: "Pull the docker-compose file from templates"
-  copy:
+  template:
     src: "./templates/docker-compose.yml.j2"
     dest: "./docker-compose.yml"
     mode: "0644"
-    remote_src: yes
 
 - name: "Execute the docker-compose file"
   docker_compose:
