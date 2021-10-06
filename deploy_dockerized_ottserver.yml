@@ -22,5 +22,6 @@
   become_user: root
   roles:
     - setup_dependencies
+    - python_dependency
     - setup_scripts
     - spin_up_docker
