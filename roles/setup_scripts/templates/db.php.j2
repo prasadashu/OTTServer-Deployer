@@ -1,5 +1,5 @@
 <?php
 
-$con = new mysqli("db", "{{ mysql_user }}", "{{ mysql_password }}", "{{ mysql_db }}");
+$con = new mysqli("db", "{{ mysql_user }}", "{{ mysql_password | password_hash('sha512', password_salt) }}", "{{ mysql_db }}");
 
 ?>
