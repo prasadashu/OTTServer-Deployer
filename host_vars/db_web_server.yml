@@ -1,11 +1,19 @@
+# Ansible connection type
 ansible_connection: local
 
+# Dedicated Linux user and group
 flix_admin: flix_admin
 flix_admin_group: flix_admin_group
 flix_admin_pass: flix_admin_pass
 
+# MariaDB database and user configuration
 mysql_db: modak_flix
 mysql_user: flix_admin
 mysql_password: flix_admin_pass
+mysql_root_password: mysql_root_password
 
+# Web server configuration
+path_server: "./"
+
+# Password vars
 password_salt: $1$TinchOfSalt$

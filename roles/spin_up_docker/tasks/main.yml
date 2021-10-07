@@ -1,0 +1,23 @@
+- name: "Restart docker daemon to create firewall rules"
+  service:
+    name: docker
+    state: restarted
+
+- name: "Pull the docker-compose file from templates"
+  template:
+    src: "./templates/docker-compose.yml.j2"
+    dest: "./docker-compose.yml"
+    mode: "0644"
+
+- name: "Execute the docker-compose file"
+  docker_compose:
+    project_src: "./"
+    scale:
+      web: 3
+  vars:
+    ansible_python_interpreter: /bin/python3
+  register: docker_compose_output
+
+- name: "Print the output of docker-compose up"
+  debug:
+    msg: "{{  docker_compose_output  }}"

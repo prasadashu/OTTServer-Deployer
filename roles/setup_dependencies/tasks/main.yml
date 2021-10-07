@@ -1,0 +1,25 @@
+- name: "Download Python 3"
+  package:
+    name: python3
+    state: present
+
+- name: "Download Git repo"
+  git:
+    repo: https://github.com/official-srv-modak/OTTServer.git
+    dest: /var/www/html/src/
+    version: main
+    force: yes
+
+- name: "Change ownership of hosted directory"
+  file:
+    path: /var/www/html/src/
+    owner: "{{ flix_admin }}"
+    group: "{{ flix_admin_group }}"
+    state: directory
+    recurse: yes
+
+- name: "Install docker-compose"
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-{{ ansible_system }}-{{ ansible_machine }}"
+    dest: /usr/local/bin/docker-compose
+    mode: "0755"

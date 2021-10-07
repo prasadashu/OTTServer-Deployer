@@ -15,13 +15,14 @@
       shell: /bin/bash
       create_home: yes
 
-- name: "Deploy OTTServer"
+- name: "Deploy Dockerized OTTServer"
+  gather_facts: yes
   hosts: "{{ host }}"
   become: yes
   become_user: root
   roles:
     - firewall_setup
+    - setup_dependencies
     - python_dependency
-    - maria_db
-    - httpd_web
-    - post_setup
+    - setup_scripts
+    - spin_up_docker

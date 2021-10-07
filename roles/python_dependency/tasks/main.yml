@@ -1,3 +1,5 @@
-- name: "Install PyMySQL"
+- name: "Install Python library dependencies"
   pip:
-    name: PyMySQL
+    name: ["requests", "docker", "docker-compose"]
+  vars:
+    ansible_python_interpreter: /bin/python3
