@@ -21,3 +21,8 @@
 - name: "Print the output of docker-compose up"
   debug:
     msg: "{{  docker_compose_output  }}"
+
+- name: "Wait for 10 seconds for DB to initialize"
+  wait_for:
+    timeout: 10
+  delegate_to: localhost
