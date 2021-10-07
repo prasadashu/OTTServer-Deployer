@@ -95,7 +95,7 @@ firewall-cmd --list-all
 ```shell
 docker-compose up -d --scale <service_name_1>=<number of containers> <service_name_1>=<number of containers>
 ```
-    - An example to scale web server containers to 5.
+- An example to scale web server containers to 5.
 ```shell
 docker-compose up -d --scale web=5
 ```
