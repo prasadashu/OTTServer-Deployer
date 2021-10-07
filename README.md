@@ -153,6 +153,9 @@ The below tech stack versions have been used to test the project:-
     
 - DB **Dockerfile** base image: `mariadb:10`
     - MariaDB: `mariadb  Ver 15.1 Distrib 10.6.4-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2`
+
+- NginX **Dockerfile** base image: `nginx:1.21`
+    - NginX: `nginx/1.21.3`
     
 - Docker compose: `docker-compose version 1.29.2`
 
