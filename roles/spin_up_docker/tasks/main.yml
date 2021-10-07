@@ -1,3 +1,8 @@
+- name: "Restart docker daemon to create firewall rules"
+  service:
+    name: docker
+    state: restarted
+
 - name: "Pull the docker-compose file from templates"
   template:
     src: "./templates/docker-compose.yml.j2"
