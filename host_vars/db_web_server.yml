@@ -10,7 +10,6 @@ flix_admin_pass: flix_admin_pass
 mysql_db: modak_flix
 mysql_user: flix_admin
 mysql_password: flix_admin_pass
-mysql_root_password: mysql_root_password
 
 # Web server configuration
 path_server: "./"
