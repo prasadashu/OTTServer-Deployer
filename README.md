@@ -147,6 +147,8 @@ The below tech stack versions have been used to test the project:-
 
 - OS: `CentOS Linux release 7.7.1908 (Core)`
 
+- Ansible: `ansible 2.9.25`
+
 - Web **Dockerfile** base image: `php:7.2-apache`
     - Apache: `2.4.38 (Debian)`
     - PHP: `7.2.34 (cli)`
