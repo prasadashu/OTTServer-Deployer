@@ -10,20 +10,6 @@
     enabled: yes
     state: started
 
-- name: "Permit traffic on ports for MariaDB through firewall"
-  firewalld:
-    port: 3000-3005/tcp
-    permanent: yes
-    state: enabled
-    immediate: yes
-
-- name: "Permit traffic on ports for httpd through firewall"
-  firewalld:
-    port: 8000-8005/tcp
-    permanent: yes
-    state: enabled
-    immediate: yes
-
 - name: "Permit traffic on ports for NginX through firewall"
   firewalld:
     port: 5000/tcp
